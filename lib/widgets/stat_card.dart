@@ -35,17 +35,15 @@ class StatCard extends StatelessWidget {
         children: [
           // Background Shape (Simplified for now)
           Positioned(
-            right: -10,
-            top: -10,
             child: Container(
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                 color: Colors.white.withOpacity(0.2),
+                 color: (iconColor ?? Colors.white).withOpacity(0.1),
                  shape: BoxShape.circle,
               ),
               child: iconColor != null && backgroundIcon != null 
-                  ? Icon(backgroundIcon, color: (iconColor ?? Colors.white).withOpacity(0.3), size: 40)
+                  ? Icon(backgroundIcon, color: iconColor!.withOpacity(0.4), size: 40)
                   : null,
             ),
           ),

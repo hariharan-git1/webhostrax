@@ -54,7 +54,7 @@ class DashboardScreen extends StatelessWidget {
                                    value: '20',
                                    subtitle: 'Total Devices',
                                    backgroundColor: AppTheme.cardPurple,
-                                   iconColor: Colors.white,
+                                   iconColor: Colors.red,
                                    backgroundIcon: Icons.devices,
                                    stats: const [
                                      Text('45 Components', style: TextStyle(fontSize: 12)),
