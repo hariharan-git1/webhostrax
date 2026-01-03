@@ -23,7 +23,7 @@ class ProductOrdersChart extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Row(
+          Column(
             children: [
               SizedBox(
                 height: 120,
@@ -69,18 +69,15 @@ class ProductOrdersChart extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildLegendRow(const Color(0xFF64B5F6), '10 Pending', '20%'),
-                    const SizedBox(height: 12),
-                    _buildLegendRow(const Color(0xFF81C784), '20 Shipping', '40%'), 
-                    const SizedBox(height: 12),
-                    _buildLegendRow(const Color(0xFFFFD54F), '40 Delivered', '40%'),
-                  ],
-                ),
+              const SizedBox(height: 16),
+              Column(
+                children: [
+                   _buildLegendRow(const Color(0xFF64B5F6), '10 Pending', '20%'),
+                   const SizedBox(height: 8),
+                   _buildLegendRow(const Color(0xFF81C784), '20 Shipping', '40%'), 
+                   const SizedBox(height: 8),
+                   _buildLegendRow(const Color(0xFFFFD54F), '40 Delivered', '40%'),
+                ],
               ),
             ],
           ),
