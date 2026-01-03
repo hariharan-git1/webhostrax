@@ -89,8 +89,8 @@ class ActiveSubscriptionsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.blue,
-                      barWidth: 3,
-                      dotData: FlDotData(show: false),
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
                     ),
                     LineChartBarData(
                       spots: const [
@@ -100,8 +100,8 @@ class ActiveSubscriptionsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.orange,
-                      barWidth: 3,
-                      dotData: FlDotData(show: false),
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
                     ),
                   ],
                   minY: 0,

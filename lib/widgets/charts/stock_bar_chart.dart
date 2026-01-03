@@ -163,19 +163,18 @@ class StockBarChart extends StatelessWidget {
   Widget _buildBigLegend(String value, String label, Color iconColor) {
     return Row(
       children: [
-        if(label.isEmpty) ...[ // Special case for "Out of Stock" if it has no value prefix in design? Image shows "Out of Stock" next to red icon.
-           Container(width: 16, height: 16, decoration: BoxDecoration(color: iconColor, borderRadius: BorderRadius.circular(4))),
-           const SizedBox(width: 8),
-           Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54)),
-        ] else ...[
-           // For "20 Available" style
-          // Wait, design 2 shows: [Icon] [Big Number] [Text]
-          // Actually it looks like: "20 Available" where 20 is big.
-           // Let's approximated: 
-           Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-           const SizedBox(width: 4),
-           Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
-        ]
+        Container(
+          width: 12, 
+          height: 12, 
+          decoration: BoxDecoration(
+            color: iconColor, 
+            borderRadius: BorderRadius.circular(2),
+          )
+        ),
+        const SizedBox(width: 8),
+        Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        const SizedBox(width: 4),
+        Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
       ],
     );
   }

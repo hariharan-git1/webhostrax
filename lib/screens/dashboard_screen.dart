@@ -121,6 +121,7 @@ class DashboardScreen extends StatelessWidget {
 
                         // Charts Row 2
                         // Charts Row 2
+                        // Charts Row 2 - Active Subscriptions & Device Alerts
                         IntrinsicHeight(
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -134,7 +135,16 @@ class DashboardScreen extends StatelessWidget {
                                 flex: 1, 
                                 child: DeviceAlertsChart(),
                               ),
-                              const SizedBox(width: 24),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+
+                        // Charts Row 3 - Product Orders & Device Health
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
                               const Expanded(flex: 1, child: ProductOrdersChart()),
                               const SizedBox(width: 24),
                               const Expanded(flex: 1, child: DeviceHealthChart()),

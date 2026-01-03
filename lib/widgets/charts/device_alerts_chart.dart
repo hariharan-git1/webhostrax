@@ -89,8 +89,8 @@ class DeviceAlertsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.blue.shade300,
-                      barWidth: 3,
-                      dotData: FlDotData(show: false),
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
                     ),
                     LineChartBarData(
                       spots: const [
@@ -100,8 +100,8 @@ class DeviceAlertsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.amber,
-                      barWidth: 3,
-                      dotData: FlDotData(show: false),
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
                     ),
                      LineChartBarData(
                       spots: const [
@@ -111,8 +111,8 @@ class DeviceAlertsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.red.shade300,
-                      barWidth: 3,
-                      dotData: FlDotData(show: false),
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
                     ),
                   ],
                   minY: 0,
