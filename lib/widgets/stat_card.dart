@@ -35,6 +35,8 @@ class StatCard extends StatelessWidget {
         children: [
           // Background Shape (Simplified for now)
           Positioned(
+            right: -10,
+            top: -10,
             child: Container(
               width: 80,
               height: 80,
