@@ -128,13 +128,11 @@ class StockBarChart extends StatelessWidget {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildBigLegend('20', 'Available', Colors.green),
-                    Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('10', 'Low Stock', Colors.orange),
-                    Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('20', 'Out of Stock', const Color(0xFFEF5350)), 
+                    _buildIconStat(Colors.green, Icons.check_circle, '20 Available'),
+                    _buildIconStat(Colors.orange, Icons.warning, '10 Low Stock'),
+                    _buildIconStat(const Color(0xFFEF5350), Icons.error, '20 Out of Stock'),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -160,21 +158,12 @@ class StockBarChart extends StatelessWidget {
     );
   }
 
-  Widget _buildBigLegend(String value, String label, Color iconColor) {
+  Widget _buildIconStat(Color color, IconData icon, String text) {
     return Row(
       children: [
-        Container(
-          width: 12, 
-          height: 12, 
-          decoration: BoxDecoration(
-            color: iconColor, 
-            borderRadius: BorderRadius.circular(2),
-          )
-        ),
+        Icon(icon, color: color, size: 16),
         const SizedBox(width: 8),
-        Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-        const SizedBox(width: 4),
-        Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+        Text(text, style: const TextStyle(fontSize: 14, color: Colors.black87)),
       ],
     );
   }

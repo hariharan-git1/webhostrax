@@ -119,13 +119,11 @@ class VendorStackedBarChart extends StatelessWidget {
              child: Column(
                children: [
                  Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildBigLegend('10', 'Pending', const Color(0xFF64B5F6)), // Blue icon in image
-                    Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('20', 'Verified', const Color(0xFFFFD54F)), // Yellow
-                    Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('2', 'Approved', const Color(0xFF4DB6AC)), // Teal
+                    _buildIconStat(const Color(0xFF64B5F6), Icons.hourglass_top, '10 Pending'),
+                    _buildIconStat(const Color(0xFFFFD54F), Icons.verified_user, '20 Verified'),
+                    _buildIconStat(const Color(0xFF4DB6AC), Icons.check_circle, '2 Approved'),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -155,21 +153,12 @@ class VendorStackedBarChart extends StatelessWidget {
     );
   }
 
-   Widget _buildBigLegend(String value, String label, Color iconColor) {
+  Widget _buildIconStat(Color color, IconData icon, String text) {
     return Row(
       children: [
-         Container(
-           width: 12, 
-           height: 12, 
-           decoration: BoxDecoration(
-             color: iconColor, 
-             borderRadius: BorderRadius.circular(2),
-           )
-         ),
-         const SizedBox(width: 8),
-         Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-         const SizedBox(width: 4),
-         Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+        Icon(icon, color: color, size: 16),
+        const SizedBox(width: 8),
+        Text(text, style: const TextStyle(fontSize: 14, color: Colors.black87)),
       ],
     );
   }
