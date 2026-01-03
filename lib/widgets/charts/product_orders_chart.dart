@@ -98,7 +98,7 @@ class ProductOrdersChart extends StatelessWidget {
              children: [
                Container(width: 8, height: 8, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
                const SizedBox(width: 8),
-               Expanded(child: Text(label, style: const TextStyle(fontSize: 12, color: Colors.black87), overflow: TextOverflow.ellipsis)),
+               Text(label, style: const TextStyle(fontSize: 12, color: Colors.black87)),
              ],
           ),
         ),
