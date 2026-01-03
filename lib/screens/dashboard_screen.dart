@@ -141,26 +141,23 @@ class DashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 24),
 
-                        // Charts Row 3 - Product Orders/Health & Device Registrations
+                        // Charts Row 3 - Product Orders, Device Health & Device Registrations
                         IntrinsicHeight(
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              // Left Column: Product Orders & Device Health stacked
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: [
-                                    const ProductOrdersChart(),
-                                    const SizedBox(height: 24),
-                                    DeviceHealthChart(),
-                                  ],
-                                ),
+                              const Expanded(
+                                flex: 2, 
+                                child: ProductOrdersChart()
                               ),
                               const SizedBox(width: 24),
-                              // Right Column: Device Registrations Table
                               const Expanded(
-                                flex: 1, 
+                                flex: 2, 
+                                child: DeviceHealthChart()
+                              ),
+                              const SizedBox(width: 24),
+                              const Expanded(
+                                flex: 4, 
                                 child: DeviceRegistrationsTable()
                               ),
                             ],
