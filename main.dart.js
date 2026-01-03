@@ -66783,7 +66783,7 @@ S(a){var s=null,r=A.aB8().$0().a12(B.cs,B.cs)
 return new A.vn(B.By,"Engineer Dashboard",A.a65(s,A.aiw(s,s,B.T,s,s,B.cy).a2V(B.dh,B.hu),B.DQ,B.dh,B.lj,r,s),!1,s)}}
 A.CV.prototype={
 S(a){var s=null,r=t.p
-return new A.wK(A.c5(A.c([B.KI,A.mb(A.eB(A.c([B.Ds,A.mb(A.agg(A.eB(A.c([A.ajI(new A.SW()),B.cO,new A.oY(A.c5(A.c([B.Ci,B.jG,B.Cd],r),B.bM,B.w,s,s),s),B.cO,new A.oY(A.c5(A.c([B.Cg,B.jG,B.Ch],r),B.bM,B.w,s,s),s),B.cO,new A.oY(A.c5(A.c([B.Ce,B.jG,B.Cf],r),B.bM,B.w,s,s),s)],r),B.ac,B.w),B.dp,B.a9),1),B.De],r),B.A,B.w),1)],r),B.A,B.w,s,s),B.lj,s)}}
+return new A.wK(A.c5(A.c([B.KI,A.mb(A.eB(A.c([B.Ds,A.mb(A.agg(A.eB(A.c([A.ajI(new A.SW()),B.cO,new A.oY(A.c5(A.c([B.Ch,B.jG,B.Cd],r),B.bM,B.w,s,s),s),B.cO,new A.oY(A.c5(A.c([B.Cf,B.jG,B.Cg],r),B.bM,B.w,s,s),s),B.cO,new A.oY(A.c5(A.c([B.Ce,B.jG,B.Ci],r),B.bM,B.w,s,s),s)],r),B.ac,B.w),B.dp,B.a9),1),B.De],r),B.A,B.w),1)],r),B.A,B.w,s,s),B.lj,s)}}
 A.SW.prototype={
 $2(a,b){var s,r,q,p="Total Devices",o=null,n="Customers",m=b.b,l=m>1200
 if(l)s=4
@@ -66965,7 +66965,7 @@ $2(a,b){return a+b},
 $S:24}
 A.Dc.prototype={
 S(a){var s=this,r=null,q="Approved",p=A.ck(16),o=t.p,n=A.c5(A.c([B.PW,A.ju(B.c8,new A.Th(),r)],o),B.A,B.b1,r,r),m=A.c([s.ny(a,"VD2568","Smart CO2 Sensor","EnvoTech\nInstruments","25 Dec 2025","Pending",B.ld,B.l1),s.ny(a,"VD10231","3phase servo-IOT","3phase servo\nSolutions","18 Dec 2025",q,B.ho,B.hm),s.ny(a,"VD12368","Air Quality Monitor","EnvirSense\nTech","10 Dec 2025","Need Action",B.lf,B.kX),s.ny(a,"VD10221","Wireless Gateway","NetWave\nTechnologies","05 Dec 2025",q,B.ho,B.hm),s.ny(a,"VD40257","Temperature Sensor","CoolTrack\nSystems","30 Nov 2025","Rejected",B.l3,B.lg)],t.yy)
-return A.bh(r,A.eB(A.c([n,B.cN,A.mb(A.agg(A.agg(new A.CY(B.ma,r,r,new A.bV(B.bL,t.rc),12,24,m,A.arM(B.ma),r),r,B.a9),r,B.al),1)],o),B.ac,B.w),B.n,r,r,new A.bA(B.i,r,r,p,r,r,B.K),r,r,r,r,B.dp,r,r,r)},
+return A.bh(r,A.eB(A.c([n,B.cN,A.mb(A.agg(A.agg(new A.CY(B.ma,r,r,new A.bV(B.bL,t.rc),8,12,m,A.arM(B.ma),r),r,B.a9),r,B.al),1)],o),B.ac,B.w),B.n,r,r,new A.bA(B.i,r,r,p,r,r,B.K),r,r,r,r,B.dp,r,r,r)},
 ny(a,b,c,d,e,f,g,h){var s=null,r=A.CX(A.c5(A.c([A.bh(s,s,B.n,s,s,new A.bA(B.l9,s,s,s,s,s,B.bD),s,6,s,s,s,s,s,6),B.cM,A.cq(b,A.l5(s,s,B.hD,s,s,s,s,s,s,s,s,s,s,s,B.Z,s,s,!0,s,s,s,s,s,s,s,s),s)],t.p),B.A,B.w,s,s)),q=A.CX(A.cq(c,B.jK,s)),p=A.CX(A.cq(d,B.by,s)),o=A.CX(A.cq(e,B.by,s)),n=A.ck(20)
 return new A.oD(A.c([r,q,p,o,A.CX(A.bh(s,A.cq(f,A.l5(s,s,h,s,s,s,s,s,s,s,s,11,s,s,B.Z,s,s,!0,s,s,s,s,s,s,s,s),s),B.n,s,s,new A.bA(g,s,s,n,s,s,B.K),s,s,s,s,B.C2,s,s,s))],t.sa))}}
 A.Th.prototype={
@@ -70319,15 +70319,15 @@ B.bs=new A.UI(0,"tight")
 B.Ra=new A.Ig(null)
 B.Cd=new A.hR(3,B.bs,B.Ra,null)
 B.JE=new A.FR(null)
-B.Ce=new A.hR(1,B.bs,B.JE,null)
-B.BL=new A.Dc(null)
-B.Cf=new A.hR(1,B.bs,B.BL,null)
+B.Ce=new A.hR(2,B.bs,B.JE,null)
 B.y1=new A.BJ(null)
-B.Cg=new A.hR(1,B.bs,B.y1,null)
+B.Cf=new A.hR(1,B.bs,B.y1,null)
 B.BJ=new A.Db(null)
-B.Ch=new A.hR(1,B.bs,B.BJ,null)
+B.Cg=new A.hR(1,B.bs,B.BJ,null)
 B.LY=new A.HE(null)
-B.Ci=new A.hR(2,B.bs,B.LY,null)
+B.Ch=new A.hR(2,B.bs,B.LY,null)
+B.BL=new A.Dc(null)
+B.Ci=new A.hR(3,B.bs,B.BL,null)
 B.Cj=new A.u6(null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.FF=s([],A.a5("t<eL>"))
 B.FG=s([],A.a5("t<eZ>"))
