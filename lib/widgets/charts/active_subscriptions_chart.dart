@@ -123,20 +123,11 @@ class ActiveSubscriptionsChart extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildStatItem('50', 'Ative', null),
+                _buildIconStat(Colors.blue, Icons.check_circle, '50 Active'),
                 Container(height: 24, width: 1, color: Colors.grey.shade300),
-                _buildStatItem('12', 'Renewed', null),
+                _buildIconStat(Colors.orange, Icons.autorenew, '12 Renewed'),
                 Container(height: 24, width: 1, color: Colors.grey.shade300),
-                Row(
-                   children: [
-                     const Text('Expiring - ', style: TextStyle(fontSize: 14, color: Colors.black87)),
-                     Container(
-                       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                       decoration: BoxDecoration(color: Colors.red.withOpacity(0.1), borderRadius: BorderRadius.circular(4)),
-                       child: const Text('8', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87)),
-                     )
-                   ],
-                )
+                _buildIconStat(Colors.red, Icons.error_outline, '8 Expiring'),
               ],
             ),
           ),
@@ -145,12 +136,12 @@ class ActiveSubscriptionsChart extends StatelessWidget {
     );
   }
 
-  Widget _buildStatItem(String value, String label, Color? color) {
+  Widget _buildIconStat(Color color, IconData icon, String text) {
     return Row(
       children: [
-        Text(value, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
-        const SizedBox(width: 4),
-        Text(label, style: const TextStyle(fontSize: 14, color: Colors.black54)),
+        Icon(icon, color: color, size: 16),
+        const SizedBox(width: 6),
+        Text(text, style: const TextStyle(fontSize: 14, color: Colors.black87)),
       ],
     );
   }
