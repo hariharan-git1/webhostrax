@@ -7,6 +7,7 @@ class StatCard extends StatelessWidget {
   final String subtitle;
   final Color backgroundColor;
   final Color? iconColor; 
+  final IconData? backgroundIcon;
   final List<Widget> stats;
   final Widget? trailing;
 
@@ -17,6 +18,7 @@ class StatCard extends StatelessWidget {
     required this.subtitle,
     required this.backgroundColor,
     this.iconColor,
+    this.backgroundIcon,
     this.stats = const [],
     this.trailing,
   });
@@ -32,16 +34,18 @@ class StatCard extends StatelessWidget {
       child: Stack(
         children: [
           // Background Shape (Simplified for now)
-          Positioned(
             right: -10,
             top: -10,
             child: Container(
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                shape: BoxShape.circle,
+                 color: Colors.white.withOpacity(0.2),
+                 shape: BoxShape.circle,
               ),
+              child: iconColor != null && backgroundIcon != null 
+                  ? Icon(backgroundIcon, color: Colors.white.withOpacity(0.5), size: 40)
+                  : null,
             ),
           ),
           
