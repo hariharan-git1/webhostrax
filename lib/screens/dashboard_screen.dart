@@ -39,8 +39,7 @@ class DashboardScreen extends StatelessWidget {
                           builder: (context, constraints) {
                              double width = constraints.maxWidth;
                              int crossAxisCount = width > 1200 ? 4 : (width > 800 ? 2 : 1);
-                             // Reduced height by increasing aspect ratio
-                             double aspectRatio = width > 1200 ? 1.8 : 1.6; 
+                             double aspectRatio = width > 1200 ? 1.65 : 1.5;
                              
                              return GridView.count(
                                crossAxisCount: crossAxisCount,
@@ -55,13 +54,13 @@ class DashboardScreen extends StatelessWidget {
                                    value: '20',
                                    subtitle: 'Total Devices',
                                    backgroundColor: AppTheme.cardPurple,
-                                   iconColor: const Color(0xFF3F51B5), // Darker Indigo
+                                   iconColor: Colors.white,
                                    backgroundIcon: Icons.devices,
                                    stats: const [
                                      Text('45 Components', style: TextStyle(fontSize: 12)),
                                      Text('8 Appliances', style: TextStyle(fontSize: 12)),
                                    ],
-                                   trailing: TextButton(onPressed: (){}, child: const Text('View More >')),
+                                   trailing: TextButton(onPressed: (){}, child: const Text('View All >')),
                                  ),
                                  const StatCard(
                                    title: 'System Integrators',
@@ -69,7 +68,7 @@ class DashboardScreen extends StatelessWidget {
                                    subtitle: 'Total',
                                    backgroundColor: AppTheme.cardCream,
                                    backgroundIcon: Icons.settings_input_component,
-                                   iconColor: Color(0xFFE65100), // Darker Orange
+                                   iconColor: Colors.white,
                                    stats: [
                                      Text('237 Customers', style: TextStyle(fontSize: 12)),
                                      Text('10 Devices', style: TextStyle(fontSize: 12)),
@@ -81,14 +80,14 @@ class DashboardScreen extends StatelessWidget {
                                    subtitle: 'Customers',
                                    backgroundColor: AppTheme.cardYellow,
                                    backgroundIcon: Icons.people_outline,
-                                   iconColor: const Color(0xFFFBC02D), // Darker Yellow
+                                   iconColor: Colors.white,
                                    stats: const [
                                      Text('20 Devices', style: TextStyle(fontSize: 12)),
                                    ],
                                     trailing: TextButton(
                                       onPressed: (){}, 
                                       style: TextButton.styleFrom(backgroundColor: Colors.white.withValues(alpha: 0.5)),
-                                      child: const Text('View More', style: TextStyle(fontSize: 10))
+                                      child: const Text('View All', style: TextStyle(fontSize: 10))
                                     ),
                                  ),
                                  const StatCard(
@@ -97,7 +96,7 @@ class DashboardScreen extends StatelessWidget {
                                    subtitle: 'Vendors',
                                    backgroundColor: AppTheme.cardBlue,
                                    backgroundIcon: Icons.store_mall_directory_outlined,
-                                   iconColor: Color(0xFF1565C0), // Darker Blue
+                                   iconColor: Colors.white,
                                    stats: [
                                       Text('5 Devices', style: TextStyle(fontSize: 12)),
                                     ],

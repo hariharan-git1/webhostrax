@@ -39,11 +39,11 @@ class StatCard extends StatelessWidget {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                 color: (iconColor ?? Colors.white).withOpacity(0.1),
+                 color: Colors.white.withOpacity(0.2),
                  shape: BoxShape.circle,
               ),
               child: iconColor != null && backgroundIcon != null 
-                  ? Icon(backgroundIcon, color: iconColor!.withOpacity(0.4), size: 40)
+                  ? Icon(backgroundIcon, color: (iconColor ?? Colors.white).withOpacity(0.3), size: 40)
                   : null,
             ),
           ),
