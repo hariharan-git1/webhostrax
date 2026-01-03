@@ -26,14 +26,14 @@ class ProductOrdersChart extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                height: 150,
-                width: 150,
+                height: 120,
+                width: 120,
                 child: Stack(
                   children: [
                     PieChart(
                       PieChartData(
                         sectionsSpace: 2,
-                        centerSpaceRadius: 50,
+                        centerSpaceRadius: 40,
                         startDegreeOffset: -90,
                         sections: [
                           PieChartSectionData(
@@ -69,7 +69,7 @@ class ProductOrdersChart extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 24),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
