@@ -25,35 +25,38 @@ class DeviceRegistrationsTable extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: SingleChildScrollView( // for vertical if needed, though usually fixed height in dashboard
-                child: DataTable(
-                  headingRowColor: MaterialStateProperty.all(Colors.grey.shade50),
-                  columnSpacing: 12, // Reduced spacing
-                  horizontalMargin: 8, // Reduced margin
-                  columns: const [
-                    DataColumn(label: Text('Device ID', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
-                    DataColumn(label: Text('Device Name', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
-                    DataColumn(label: Text('Vendor Name', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
-                    DataColumn(label: Text('Submitted Date', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
-                    DataColumn(label: Text('Status', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
-                  ],
-                  rows: [
-                    _buildRow(
-                      context, 'VD2568', 'Smart CO2 Sensor', 'EnvoTech\nInstruments', '25 Dec 2025', 'Pending', Colors.amber.shade100, Colors.amber.shade900
-                    ),
-                    _buildRow(
-                      context, 'VD10231', '3phase servo-IOT', '3phase servo\nSolutions', '18 Dec 2025', 'Approved', Colors.green.shade100, Colors.green.shade900
-                    ),
-                    _buildRow(
-                      context, 'VD12368', 'Air Quality Monitor', 'EnvirSense\nTech', '10 Dec 2025', 'Need Action', Colors.orange.shade100, Colors.orange.shade900
-                    ),
-                    _buildRow(
-                      context, 'VD10221', 'Wireless Gateway', 'NetWave\nTechnologies', '05 Dec 2025', 'Approved', Colors.green.shade100, Colors.green.shade900
-                    ),
-                    _buildRow(
-                      context, 'VD40257', 'Temperature Sensor', 'CoolTrack\nSystems', '30 Nov 2025', 'Rejected', Colors.red.shade100, Colors.red.shade900
-                    ),
-                  ],
+              child: SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minWidth: 600), // Ensure min width for readability
+                  child: DataTable(
+                    headingRowColor: MaterialStateProperty.all(Colors.grey.shade50),
+                    columnSpacing: 10,
+                    horizontalMargin: 8,
+                    columns: const [
+                       DataColumn(label: Text('Device ID', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 11))),
+                       DataColumn(label: Text('Device Name', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 11))),
+                       DataColumn(label: Text('Vendor Name', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 11))),
+                       DataColumn(label: Text('Submitted Date', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 11))),
+                       DataColumn(label: Text('Status', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 11))),
+                    ],
+                    rows: [
+                      _buildRow(
+                        context, 'VD2568', 'Smart CO2 Sensor', 'EnvoTech\nInstruments', '25 Dec 2025', 'Pending', Colors.amber.shade100, Colors.amber.shade900
+                      ),
+                      _buildRow(
+                        context, 'VD10231', '3phase servo-IOT', '3phase servo\nSolutions', '18 Dec 2025', 'Approved', Colors.green.shade100, Colors.green.shade900
+                      ),
+                      _buildRow(
+                        context, 'VD12368', 'Air Quality Monitor', 'EnvirSense\nTech', '10 Dec 2025', 'Need Action', Colors.orange.shade100, Colors.orange.shade900
+                      ),
+                      _buildRow(
+                        context, 'VD10221', 'Wireless Gateway', 'NetWave\nTechnologies', '05 Dec 2025', 'Approved', Colors.green.shade100, Colors.green.shade900
+                      ),
+                      _buildRow(
+                        context, 'VD40257', 'Temperature Sensor', 'CoolTrack\nSystems', '30 Nov 2025', 'Rejected', Colors.red.shade100, Colors.red.shade900
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -68,20 +71,20 @@ class DeviceRegistrationsTable extends StatelessWidget {
       cells: [
         DataCell(Row(children: [
           Container(width: 6, height: 6, decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue.shade900)),
-          const SizedBox(width: 8),
-          Text(id, style: TextStyle(color: Colors.blue.shade700, fontWeight: FontWeight.bold)),
+          const SizedBox(width: 6),
+          Text(id, style: TextStyle(color: Colors.blue.shade700, fontWeight: FontWeight.bold, fontSize: 11)),
         ])),
-        DataCell(Text(name, style: const TextStyle(fontWeight: FontWeight.bold))), // Bold Device Name
-        DataCell(Text(vendor, style: const TextStyle(fontSize: 12))),
-        DataCell(Text(date, style: const TextStyle(fontSize: 12))),
+        DataCell(Text(name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11))),
+        DataCell(Text(vendor, style: const TextStyle(fontSize: 11))),
+        DataCell(Text(date, style: const TextStyle(fontSize: 11))),
         DataCell(
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
               color: chipBg,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Text(status, style: TextStyle(color: chipText, fontSize: 11, fontWeight: FontWeight.bold)),
+            child: Text(status, style: TextStyle(color: chipText, fontSize: 10, fontWeight: FontWeight.bold)),
           ),
         ),
       ],
