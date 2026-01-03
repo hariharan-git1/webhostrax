@@ -40,14 +40,45 @@ class StockBarChart extends StatelessWidget {
                   barTouchData: BarTouchData(
                     enabled: true,
                     touchTooltipData: BarTouchTooltipData(
-                      getTooltipColor: (group) => Colors.blueGrey,
+                      getTooltipColor: (_) => Colors.white,
+                      tooltipBorder: const BorderSide(color: Colors.black), 
+                    //  getTooltipColor: (_) =>
+                      tooltipPadding: const EdgeInsets.all(8),
+                      tooltipMargin: 8,
                       getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        String weekDay;
+                        switch (group.x.toInt()) {
+                          case 0: weekDay = 'Jan'; break;
+                          case 1: weekDay = 'Feb'; break;
+                          case 2: weekDay = 'Mar'; break;
+                          case 3: weekDay = 'Apr'; break;
+                          case 4: weekDay = 'May'; break;
+                          case 5: weekDay = 'Jun'; break;
+                          case 6: weekDay = 'Jul'; break;
+                          case 7: weekDay = 'Aug'; break;
+                          case 8: weekDay = 'Sep'; break;
+                          case 9: weekDay = 'Oct'; break;
+                          case 10: weekDay = 'Nov'; break;
+                          case 11: weekDay = 'Dec'; break;
+                          default: throw Error();
+                        }
                         return BarTooltipItem(
-                          rod.toY.round().toString(),
+                          '$weekDay\n',
                           const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
+                            fontSize: 14,
                           ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'value : ${rod.toY.toInt()}',
+                              style: const TextStyle(
+                                color: Color(0xFF64B5F6), // Light Blue
+                                fontSize: 13,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
                         );
                       },
                     ),

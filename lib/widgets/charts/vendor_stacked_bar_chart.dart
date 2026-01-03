@@ -40,14 +40,77 @@ class VendorStackedBarChart extends StatelessWidget {
                   barTouchData: BarTouchData(
                     enabled: true,
                     touchTooltipData: BarTouchTooltipData(
-                      getTooltipColor: (group) => Colors.blueGrey,
+                      tooltipBorder:  const BorderSide(color: Colors.black),
+                      getTooltipColor: (_) => Colors.white,
+                 //     getTooltipBorder: (_) => const BorderSide(color: Colors.black),
+                      tooltipPadding: const EdgeInsets.all(8),
+                      tooltipMargin: 8,
                       getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        String weekDay;
+                        switch (group.x.toInt()) {
+                          case 0: weekDay = 'Jan'; break;
+                          case 1: weekDay = 'Feb'; break;
+                          case 2: weekDay = 'Mar'; break;
+                          case 3: weekDay = 'Apr'; break;
+                          case 4: weekDay = 'May'; break;
+                          case 5: weekDay = 'Jun'; break;
+                          case 6: weekDay = 'Jul'; break;
+                          case 7: weekDay = 'Aug'; break;
+                          case 8: weekDay = 'Sep'; break;
+                          case 9: weekDay = 'Oct'; break;
+                          case 10: weekDay = 'Nov'; break;
+                          case 11: weekDay = 'Dec'; break;
+                          default: throw Error();
+                        }
+                        // rodStackItems has the accumulated values, we need individual values.
+                        // However, we passed them into the group.
+                        // We can access the original values if we knew how they were constructed.
+                        // Since we are inside the chart, we might only have rod.rodStackItems.
+                        // rod.rodStackItems[0].toY is the first value (e.g. 10)
+                        // rod.rodStackItems[1].toY is the cumulative (e.g. 10+5=15)
+                        // rod.rodStackItems[2].toY is the cumulative (e.g. 15+2=17)
+                        
+                        // BUT, looking at how `_makeGroupData` constructs it:
+                        // Item 0: from 0 to values[0] -> toY = values[0]
+                        // Item 1: from values[0] to values[0]+values[1] -> toY = values[0]+values[1]
+                        
+                        double pending = rod.rodStackItems[0].toY; 
+                        double approved = rod.rodStackItems[1].toY - rod.rodStackItems[0].toY;
+                        double verified = rod.rodStackItems[2].toY - rod.rodStackItems[1].toY;
+
                         return BarTooltipItem(
-                          rod.toY.round().toString(),
+                          '$weekDay\n',
                           const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
+                            fontSize: 14,
                           ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'approved : ${approved.toInt()}\n',
+                              style: const TextStyle(
+                                color: Color(0xFF4DB6AC), // Teal (Approved)
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                             TextSpan(
+                              text: 'pending : ${pending.toInt()}\n',
+                              style: const TextStyle(
+                                color: Color(0xFF64B5F6), // Blue (Pending)
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                             TextSpan(
+                              text: 'verified : ${verified.toInt()}',
+                              style: const TextStyle(
+                                color: Color(0xFFFFD54F), // Yellow (Verified)
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
                         );
                       },
                     ),

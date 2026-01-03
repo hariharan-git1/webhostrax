@@ -68,10 +68,10 @@ class DashboardScreen extends StatelessWidget {
                                       style: TextStyle(fontSize: 12),
                                     ),
                                   ],
-                                  trailing: TextButton(
-                                    onPressed: () {},
-                                    child: const Text('view more >'),
-                                  ),
+                                  // trailing: TextButton(
+                                  //   onPressed: () {},
+                                  //   child: const Text('view mo re >'),
+                                  // ),
                                 ),
                                 const StatCard(
                                   title: 'System Integrators',
@@ -93,7 +93,6 @@ class DashboardScreen extends StatelessWidget {
                                   ],
                                 ),
                                 StatCard(
-                                  
                                   title: 'Customers',
                                   value: '10',
                                   subtitle: 'Customers',
@@ -111,10 +110,10 @@ class DashboardScreen extends StatelessWidget {
                                       style: TextStyle(fontSize: 12),
                                     ),
                                   ],
-                                  trailing: TextButton(
-                                    onPressed: () {},
-                                    child: const Text('view more >'),
-                                  ),
+                                  // trailing: TextButton(
+                                  //   onPressed: () {},
+                                  //   child: const Text('view more >'),
+                                  // ),
                                 ),
                                 const StatCard(
                                   title: 'Vendors',
@@ -179,7 +178,7 @@ class DashboardScreen extends StatelessWidget {
                         // Charts Row 3 - Product Orders, Device Health & Device Registrations
                         IntrinsicHeight(
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Expanded(
                                 flex: 2,
@@ -188,12 +187,18 @@ class DashboardScreen extends StatelessWidget {
                               const SizedBox(width: 24),
                               const Expanded(
                                 flex: 2,
-                                child: DeviceHealthChart(),
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 15),
+                                  child: DeviceHealthChart(),
+                                ),
                               ),
                               const SizedBox(width: 24),
                               const Expanded(
                                 flex: 4,
-                                child: DeviceRegistrationsTable(),
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 15),
+                                  child: DeviceRegistrationsTable(),
+                                ),
                               ),
                             ],
                           ),

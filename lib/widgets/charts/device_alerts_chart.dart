@@ -40,6 +40,72 @@ class DeviceAlertsChart extends StatelessWidget {
                     getDrawingHorizontalLine: (value) =>
                         FlLine(color: Colors.grey.shade100, strokeWidth: 1),
                   ),
+                  lineTouchData: LineTouchData(
+                    enabled: true,
+                    touchTooltipData: LineTouchTooltipData(
+                      getTooltipColor: (_) => Colors.white,
+                      tooltipBorder: const BorderSide(color: Colors.black),
+                      tooltipPadding: const EdgeInsets.all(8),
+                      tooltipMargin: 8,
+                      getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
+                         String weekDay;
+                        switch (touchedBarSpots[0].x.toInt()) {
+                          case 0: weekDay = 'Jan'; break;
+                          case 1: weekDay = 'Feb'; break;
+                          case 2: weekDay = 'Mar'; break;
+                          case 3: weekDay = 'Apr'; break;
+                          case 4: weekDay = 'May'; break;
+                          case 5: weekDay = 'Jun'; break;
+                          case 6: weekDay = 'Jul'; break;
+                          case 7: weekDay = 'Aug'; break;
+                          case 8: weekDay = 'Sep'; break;
+                          case 9: weekDay = 'Oct'; break;
+                          case 10: weekDay = 'Nov'; break;
+                          case 11: weekDay = 'Dec'; break;
+                           default: weekDay = '';
+                        }
+                        
+                         return touchedBarSpots.map((barSpot) {
+                          final flSpot = barSpot;
+                          
+                          Color color;
+                          String label;
+                          
+                          // Identify the line by barIndex
+                          if (barSpot.barIndex == 0) { // Blue -> Pending
+                             color = Colors.blue.shade300;
+                             label = 'pending';
+                          } else if (barSpot.barIndex == 1) { // Amber -> Vendor
+                             color = Colors.amber;
+                             label = 'vendor';
+                          } else { // Red -> Fault
+                             color = Colors.red.shade300;
+                             label = 'fault';
+                          }
+
+                          if (barSpot.barIndex == 0) {
+                             return LineTooltipItem(
+                               '$weekDay\n',
+                               const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),
+                               textAlign: TextAlign.left,
+                               children: [
+                                  TextSpan(
+                                    text: '$label : ${flSpot.y.toInt()}', 
+                                    style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.normal)
+                                  ),
+                               ]
+                             );
+                          } else {
+                             return LineTooltipItem(
+                               '$label : ${flSpot.y.toInt()}',
+                               TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.normal),
+                               textAlign: TextAlign.left,
+                             );
+                          }
+                        }).toList();
+                      },
+                    ),
+                  ),
                   titlesData: FlTitlesData(
                     show: true,
                     bottomTitles: AxisTitles(

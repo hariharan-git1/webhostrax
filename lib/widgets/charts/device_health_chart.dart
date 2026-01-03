@@ -28,6 +28,7 @@ class DeviceHealthChart extends StatelessWidget {
           const SizedBox(height: 16),
           Column(
             children: [
+              const SizedBox(height: 30),
               SizedBox(
                 height: 100,
                 width: 120,
@@ -60,6 +61,7 @@ class DeviceHealthChart extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     const Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -82,7 +84,7 @@ class DeviceHealthChart extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 46),
               Column(
                 children: [
                   _buildLegendRow(const Color(0xFF66BB6A), '55 Good', '65%'),

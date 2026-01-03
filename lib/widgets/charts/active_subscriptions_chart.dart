@@ -40,6 +40,97 @@ class ActiveSubscriptionsChart extends StatelessWidget {
                     getDrawingHorizontalLine: (value) =>
                         FlLine(color: Colors.grey.shade100, strokeWidth: 1),
                   ),
+                  lineTouchData: LineTouchData(
+                    enabled: true,
+                    touchTooltipData: LineTouchTooltipData(
+                      getTooltipColor: (_) => Colors.white,
+                      tooltipBorder: const BorderSide(color: Colors.black),
+                      tooltipPadding: const EdgeInsets.all(8),
+                      tooltipMargin: 8,
+                      getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
+                         String weekDay;
+                        switch (touchedBarSpots[0].x.toInt()) {
+                          case 0: weekDay = 'Jan'; break;
+                          case 1: weekDay = 'Feb'; break;
+                          case 2: weekDay = 'Mar'; break;
+                          case 3: weekDay = 'Apr'; break;
+                          case 4: weekDay = 'May'; break;
+                          case 5: weekDay = 'Jun'; break;
+                          case 6: weekDay = 'Jul'; break;
+                          case 7: weekDay = 'Aug'; break;
+                          case 8: weekDay = 'Sep'; break;
+                          case 9: weekDay = 'Oct'; break;
+                          case 10: weekDay = 'Nov'; break;
+                          case 11: weekDay = 'Dec'; break;
+                           default: weekDay = '';
+                        }
+                        
+                        return touchedBarSpots.map((barSpot) {
+                          final flSpot = barSpot;
+                          if (flSpot.x == 0 || flSpot.x == 11) {
+                           // return null;
+                          }
+                          
+                          TextStyle textStyle;
+                          String label;
+                          
+                          // Identify the line by color or index
+                          if (barSpot.barIndex == 0) { // Blue -> Active
+                             textStyle = const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold);
+                             label = 'active';
+                          } else if (barSpot.barIndex == 1) { // Orange -> Renewal
+                             textStyle = const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold);
+                             label = 'renewal';
+                          } else { // Red -> Expiring
+                             textStyle = const TextStyle(color: Colors.red, fontWeight: FontWeight.bold);
+                             label = 'expiring';
+                          }
+
+                          if (barSpot.barIndex == 0) {
+                             return LineTooltipItem(
+                               '$weekDay\n',
+                               const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                               textAlign: TextAlign.left,
+                               children: [
+                                  TextSpan(
+                                    text: '$label : ${flSpot.y.toInt()}', 
+                                    style: textStyle.copyWith(fontSize: 12, fontWeight: FontWeight.normal)
+                                  ),
+                               ]
+                             );
+                          } else {
+                             return LineTooltipItem(
+                               '$label : ${flSpot.y.toInt()}',
+                               textStyle.copyWith(fontSize: 12, fontWeight: FontWeight.normal),
+                               textAlign: TextAlign.left,
+                             );
+                          }
+
+                          // BETTER APPROACH:
+                          // Item 0: Text = "Jan\n", Children = [Span("active: 42")]
+                          // Item 1: Text = "renewal: 30", Children = []
+                          
+                          if (barSpot.barIndex == 0) {
+                             return LineTooltipItem(
+                               '$weekDay\n',
+                               const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                               children: [
+                                  TextSpan(
+                                    text: '$label : ${flSpot.y.toInt()}', 
+                                    style: textStyle.copyWith(fontSize: 12, fontWeight: FontWeight.normal)
+                                  ),
+                               ]
+                             );
+                          } else {
+                             return LineTooltipItem(
+                               '$label : ${flSpot.y.toInt()}',
+                               textStyle.copyWith(fontSize: 12, fontWeight: FontWeight.normal),
+                             );
+                          }
+                        }).toList();
+                      },
+                    ),
+                  ),
                   titlesData: FlTitlesData(
                     show: true,
                     bottomTitles: AxisTitles(
@@ -145,6 +236,26 @@ class ActiveSubscriptionsChart extends StatelessWidget {
                       ],
                       isCurved: true,
                       color: Colors.orange,
+                      barWidth: 5,
+                      dotData: FlDotData(show: true),
+                    ),
+                    LineChartBarData(
+                      spots: const [
+                        FlSpot(0, 10),
+                        FlSpot(1, 15),
+                        FlSpot(2, 12),
+                        FlSpot(3, 18),
+                        FlSpot(4, 14),
+                        FlSpot(5, 10),
+                        FlSpot(6, 16),
+                        FlSpot(7, 12),
+                        FlSpot(8, 15),
+                        FlSpot(9, 8),
+                        FlSpot(10, 12),
+                        FlSpot(11, 10),
+                      ],
+                      isCurved: true,
+                      color: Colors.red,
                       barWidth: 5,
                       dotData: FlDotData(show: true),
                     ),
