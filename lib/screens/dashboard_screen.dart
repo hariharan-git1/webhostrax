@@ -10,6 +10,7 @@ import 'package:testweb/widgets/charts/vendor_stacked_bar_chart.dart';
 import 'package:testweb/widgets/charts/active_subscriptions_chart.dart';
 import 'package:testweb/widgets/charts/device_alerts_chart.dart';
 import 'package:testweb/widgets/charts/product_orders_chart.dart';
+import 'package:testweb/widgets/charts/device_health_chart.dart';
 import 'package:testweb/widgets/device_registrations_table.dart';
 import 'package:testweb/widgets/footer.dart';
 
