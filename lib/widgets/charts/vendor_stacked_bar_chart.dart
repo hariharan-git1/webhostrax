@@ -34,7 +34,21 @@ class VendorStackedBarChart extends StatelessWidget {
                 BarChartData(
                   alignment: BarChartAlignment.spaceAround,
                   maxY: 60,
-                  barTouchData: BarTouchData(enabled: false),
+                  barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData: BarTouchTooltipData(
+                      getTooltipColor: (group) => Colors.blueGrey,
+                      getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        return BarTooltipItem(
+                          rod.toY.round().toString(),
+                          const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   titlesData: FlTitlesData(
                     show: true,
                     bottomTitles: AxisTitles(
@@ -115,30 +129,8 @@ class VendorStackedBarChart extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   children: [
-                     Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         const Text('Facilities of simple alerts', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                         const SizedBox(height: 4),
-                         const Text('Facilities (Group)', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                       ],
-                     ),
-                     ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF5B61F5), // Solid Blue
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                      ),
-                      child: const Text('View Stock >'),
-                    ),
-                   ],
-                 ),
-               ],
-             ),
+              ],
+            ),
            ),
         ],
       ),
@@ -166,11 +158,18 @@ class VendorStackedBarChart extends StatelessWidget {
    Widget _buildBigLegend(String value, String label, Color iconColor) {
     return Row(
       children: [
-         Container(width: 20, height: 20, decoration: BoxDecoration(color: iconColor, borderRadius: BorderRadius.circular(6))), // Icon box
+         Container(
+           width: 12, 
+           height: 12, 
+           decoration: BoxDecoration(
+             color: iconColor, 
+             borderRadius: BorderRadius.circular(2),
+           )
+         ),
          const SizedBox(width: 8),
-         Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+         Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
          const SizedBox(width: 4),
-         Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
+         Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
       ],
     );
   }

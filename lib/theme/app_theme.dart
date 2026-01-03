@@ -12,7 +12,7 @@ class AppTheme {
   static const Color cardPurple = Color(0xFFD6D9EF);
   static const Color cardCream = Color(0xFFFEF5E5);
   static const Color cardYellow = Color(0xFFFFF7D3);
-  static const Color cardBlue = Color(0xFFD9E7FB);
+  static const Color cardBlue = Color(0xFFBBDEFB);
   static const Color white = Colors.white;
 
   // Status Colors

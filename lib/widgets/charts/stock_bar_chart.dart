@@ -34,7 +34,21 @@ class StockBarChart extends StatelessWidget {
                 BarChartData(
                   alignment: BarChartAlignment.spaceAround,
                   maxY: 20,
-                  barTouchData: BarTouchData(enabled: false),
+                  barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData: BarTouchTooltipData(
+                      getTooltipColor: (group) => Colors.blueGrey,
+                      getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        return BarTooltipItem(
+                          rod.toY.round().toString(),
+                          const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   titlesData: FlTitlesData(
                     show: true,
                     bottomTitles: AxisTitles(
@@ -116,30 +130,14 @@ class StockBarChart extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildBigLegend('20', 'Available', Colors.black),
+                    _buildBigLegend('20', 'Available', Colors.green),
                     Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('10', 'Low Stock', const Color(0xFF69F0AE)), // Light Green Icon color
+                    _buildBigLegend('10', 'Low Stock', Colors.orange),
                     Container(height: 30, width: 1, color: Colors.grey.shade300),
-                    _buildBigLegend('Out of Stock', '', const Color(0xFFEF5350)), // Red
+                    _buildBigLegend('20', 'Out of Stock', const Color(0xFFEF5350)), 
                   ],
                 ),
                 const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Track needs', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF5B61F5), // Solid Blue
-                        foregroundColor: Colors.white, // White text
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                      ),
-                      child: const Text('View Stock >'),
-                    ),
-                  ],
-                )
               ],
             ),
           ),

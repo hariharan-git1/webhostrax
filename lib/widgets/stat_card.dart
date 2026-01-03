@@ -34,6 +34,7 @@ class StatCard extends StatelessWidget {
       child: Stack(
         children: [
           // Background Shape (Simplified for now)
+          Positioned(
             right: -10,
             top: -10,
             child: Container(
@@ -44,14 +45,14 @@ class StatCard extends StatelessWidget {
                  shape: BoxShape.circle,
               ),
               child: iconColor != null && backgroundIcon != null 
-                  ? Icon(backgroundIcon, color: Colors.white.withOpacity(0.5), size: 40)
+                  ? Icon(backgroundIcon, color: (iconColor ?? Colors.white).withOpacity(0.3), size: 40)
                   : null,
             ),
           ),
           
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 title,
@@ -61,24 +62,23 @@ class StatCard extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
                 children: [
                   Text(
                     value,
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: AppTheme.primaryText,
+                          height: 1.0, 
                         ),
                   ),
                   const SizedBox(width: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 6),
-                    child: Text(
-                      subtitle,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppTheme.secondaryText,
-                          ),
-                    ),
+                  Text(
+                    subtitle,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: AppTheme.secondaryText,
+                        ),
                   ),
                 ],
               ),

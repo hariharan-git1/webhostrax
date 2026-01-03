@@ -123,7 +123,7 @@ class ActiveSubscriptionsChart extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildStatItem('50', 'Active', null),
+                _buildStatItem('50', 'Ative', null),
                 Container(height: 24, width: 1, color: Colors.grey.shade300),
                 _buildStatItem('12', 'Renewed', null),
                 Container(height: 24, width: 1, color: Colors.grey.shade300),
