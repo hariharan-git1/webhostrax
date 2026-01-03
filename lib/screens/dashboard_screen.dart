@@ -152,7 +152,7 @@ class DashboardScreen extends StatelessWidget {
                                   children: [
                                     const ProductOrdersChart(),
                                     const SizedBox(height: 24),
-                                    const DeviceHealthChart(),
+                                    DeviceHealthChart(),
                                   ],
                                 ),
                               ),
