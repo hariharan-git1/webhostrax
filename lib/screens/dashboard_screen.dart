@@ -145,9 +145,9 @@ class DashboardScreen extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              const Expanded(flex: 1, child: ProductOrdersChart()),
+                              const Expanded(flex: 2, child: ProductOrdersChart()),
                               const SizedBox(width: 24),
-                              const Expanded(flex: 1, child: DeviceRegistrationsTable()),
+                              const Expanded(flex: 3, child: DeviceRegistrationsTable()),
                             ],
                           ),
                         ),

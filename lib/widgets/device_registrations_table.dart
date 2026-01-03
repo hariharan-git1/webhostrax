@@ -28,8 +28,8 @@ class DeviceRegistrationsTable extends StatelessWidget {
               child: SingleChildScrollView( // for vertical if needed, though usually fixed height in dashboard
                 child: DataTable(
                   headingRowColor: MaterialStateProperty.all(Colors.grey.shade50),
-                  columnSpacing: 24,
-                  horizontalMargin: 12,
+                  columnSpacing: 12, // Reduced spacing
+                  horizontalMargin: 8, // Reduced margin
                   columns: const [
                     DataColumn(label: Text('Device ID', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
                     DataColumn(label: Text('Device Name', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey))),
