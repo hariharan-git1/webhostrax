@@ -37,84 +37,120 @@ class DashboardScreen extends StatelessWidget {
                         // Stats Row
                         LayoutBuilder(
                           builder: (context, constraints) {
-                             double width = constraints.maxWidth;
-                             int crossAxisCount = width > 1200 ? 4 : (width > 800 ? 2 : 1);
-                             double aspectRatio = width > 1200 ? 1.65 : 1.5;
-                             
-                             return GridView.count(
-                               crossAxisCount: crossAxisCount,
-                               shrinkWrap: true,
-                               crossAxisSpacing: 24,
-                               mainAxisSpacing: 24,
-                               childAspectRatio: aspectRatio,
-                               physics: const NeverScrollableScrollPhysics(),
-                               children: [
-                                 StatCard(
-                                   title: 'Total Devices',
-                                   value: '20',
-                                   subtitle: 'Total Devices',
-                                   backgroundColor: AppTheme.cardPurple,
-                                   iconColor: Colors.white,
-                                   backgroundIcon: Icons.devices,
-                                   stats: const [
-                                     Text('45 Components', style: TextStyle(fontSize: 12)),
-                                     Text('8 Appliances', style: TextStyle(fontSize: 12)),
-                                   ],
-                                   trailing: TextButton(onPressed: (){}, child: const Text('View All >')),
-                                 ),
-                                 const StatCard(
-                                   title: 'System Integrators',
-                                   value: '8',
-                                   subtitle: 'Total',
-                                   backgroundColor: AppTheme.cardCream,
-                                   backgroundIcon: Icons.settings_input_component,
-                                   iconColor: Colors.white,
-                                   stats: [
-                                     Text('237 Customers', style: TextStyle(fontSize: 12)),
-                                     Text('10 Devices', style: TextStyle(fontSize: 12)),
-                                   ],
-                                 ),
-                                 StatCard(
-                                   title: 'Customers',
-                                   value: '10',
-                                   subtitle: 'Customers',
-                                   backgroundColor: AppTheme.cardYellow,
-                                   backgroundIcon: Icons.people_outline,
-                                   iconColor: Colors.white,
-                                   stats: const [
-                                     Text('20 Devices', style: TextStyle(fontSize: 12)),
-                                   ],
-                                    trailing: TextButton(
-                                      onPressed: (){}, 
-                                      style: TextButton.styleFrom(backgroundColor: Colors.white.withValues(alpha: 0.5)),
-                                      child: const Text('View All', style: TextStyle(fontSize: 10))
+                            double width = constraints.maxWidth;
+                            int crossAxisCount = width > 1200
+                                ? 4
+                                : (width > 800 ? 2 : 1);
+                            double aspectRatio = width > 1200 ? 1.7 : 1.5;
+
+                            return GridView.count(
+                              crossAxisCount: crossAxisCount,
+                              shrinkWrap: true,
+                              crossAxisSpacing: 24,
+                              mainAxisSpacing: 24,
+                              childAspectRatio: aspectRatio,
+                              physics: const NeverScrollableScrollPhysics(),
+                              children: [
+                                StatCard(
+                                  title: 'Total Devices',
+                                  value: '20',
+                                  subtitle: 'Total Devices',
+                                  backgroundColor: AppTheme.cardPurple,
+                                  iconColor: Colors.deepPurple,
+                                  backgroundIcon: Icons.devices,
+                                  stats: const [
+                                    Text(
+                                      '45 Components',
+                                      style: TextStyle(fontSize: 12),
                                     ),
-                                 ),
-                                 const StatCard(
-                                   title: 'Vendors',
-                                   value: '10',
-                                   subtitle: 'Vendors',
-                                   backgroundColor: AppTheme.cardBlue,
-                                   backgroundIcon: Icons.store_mall_directory_outlined,
-                                   iconColor: Colors.white,
-                                   stats: [
-                                      Text('5 Devices', style: TextStyle(fontSize: 12)),
-                                    ],
-                                 ),
-                               ],
-                             );
-                          }
+                                    Text(
+                                      '8 Appliances',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                  trailing: TextButton(
+                                    onPressed: () {},
+                                    child: const Text('view more >'),
+                                  ),
+                                ),
+                                const StatCard(
+                                  title: 'System Integrators',
+                                  value: '8',
+                                  subtitle: 'Total',
+                                  backgroundColor: AppTheme.cardCream,
+                                  backgroundIcon:
+                                      Icons.settings_input_component,
+                                  iconColor: Color.fromARGB(255, 206, 189, 32),
+                                  stats: [
+                                    Text(
+                                      '237 Customers',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    Text(
+                                      '10 Devices',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                                StatCard(
+                                  
+                                  title: 'Customers',
+                                  value: '10',
+                                  subtitle: 'Customers',
+                                  backgroundColor: AppTheme.cardYellow,
+                                  backgroundIcon: Icons.people_outline,
+                                  iconColor: const Color.fromARGB(
+                                    255,
+                                    103,
+                                    103,
+                                    4,
+                                  ),
+                                  stats: const [
+                                    Text(
+                                      '20 Devices',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                  trailing: TextButton(
+                                    onPressed: () {},
+                                    child: const Text('view more >'),
+                                  ),
+                                ),
+                                const StatCard(
+                                  title: 'Vendors',
+                                  value: '10',
+                                  subtitle: 'Vendors',
+                                  backgroundColor: AppTheme.cardBlue,
+                                  backgroundIcon:
+                                      Icons.store_mall_directory_outlined,
+                                  iconColor: Color.fromARGB(255, 18, 96, 159),
+                                  stats: [
+                                    Text(
+                                      '5 Devices',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            );
+                          },
                         ),
                         const SizedBox(height: 24),
-                        
+
                         // Charts Row 1
                         IntrinsicHeight(
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              const Expanded(flex: 1, child: StockBarChart()), // Was 2
+                              const Expanded(
+                                flex: 1,
+                                child: StockBarChart(),
+                              ), // Was 2
                               const SizedBox(width: 24),
-                              const Expanded(flex: 1, child: VendorStackedBarChart()), // Was 3
+                              const Expanded(
+                                flex: 1,
+                                child: VendorStackedBarChart(),
+                              ), // Was 3
                             ],
                           ),
                         ),
@@ -126,13 +162,13 @@ class DashboardScreen extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                               const Expanded(
-                                flex: 1, 
+                              const Expanded(
+                                flex: 1,
                                 child: ActiveSubscriptionsChart(),
                               ),
                               const SizedBox(width: 24),
                               const Expanded(
-                                flex: 1, 
+                                flex: 1,
                                 child: DeviceAlertsChart(),
                               ),
                             ],
@@ -146,18 +182,18 @@ class DashboardScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               const Expanded(
-                                flex: 2, 
-                                child: ProductOrdersChart()
+                                flex: 2,
+                                child: ProductOrdersChart(),
                               ),
                               const SizedBox(width: 24),
                               const Expanded(
-                                flex: 2, 
-                                child: DeviceHealthChart()
+                                flex: 2,
+                                child: DeviceHealthChart(),
                               ),
                               const SizedBox(width: 24),
                               const Expanded(
-                                flex: 4, 
-                                child: DeviceRegistrationsTable()
+                                flex: 4,
+                                child: DeviceRegistrationsTable(),
                               ),
                             ],
                           ),

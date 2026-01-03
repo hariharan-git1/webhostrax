@@ -7,7 +7,7 @@ class ProductOrdersChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -18,15 +18,18 @@ class ProductOrdersChart extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Product Orders', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              TextButton(onPressed: () {}, child: const Text('View All >')),
+              const Text(
+                'Product Orders',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              TextButton(onPressed: () {}, child: const Text('view more >')),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           Column(
             children: [
               SizedBox(
-                height: 120,
+                height: 100,
                 width: 120,
                 child: Stack(
                   children: [
@@ -61,22 +64,40 @@ class ProductOrdersChart extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('20', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-                          Text('Total\nDevices', textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: Colors.grey)),
+                          Text(
+                            '20',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          ),
+                          Text(
+                            'Total\nDevices',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.grey),
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 16),
               Column(
                 children: [
-                   _buildLegendRow(const Color(0xFF64B5F6), '10 Pending', '20%'),
-                   const SizedBox(height: 8),
-                   _buildLegendRow(const Color(0xFF81C784), '20 Shipping', '40%'), 
-                   const SizedBox(height: 8),
-                   _buildLegendRow(const Color(0xFFFFD54F), '40 Delivered', '40%'),
+                  _buildLegendRow(const Color(0xFF64B5F6), '10 Pending', '20%'),
+                  const SizedBox(height: 8),
+                  _buildLegendRow(
+                    const Color(0xFF81C784),
+                    '20 Shipping',
+                    '40%',
+                  ),
+                  const SizedBox(height: 8),
+                  _buildLegendRow(
+                    const Color(0xFFFFD54F),
+                    '40 Delivered',
+                    '40%',
+                  ),
                 ],
               ),
             ],
@@ -92,15 +113,25 @@ class ProductOrdersChart extends StatelessWidget {
       children: [
         Expanded(
           child: Row(
-             children: [
-               Container(width: 8, height: 8, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
-               const SizedBox(width: 8),
-               Text(label, style: const TextStyle(fontSize: 12, color: Colors.black87)),
-             ],
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                label,
+                style: const TextStyle(fontSize: 12, color: Colors.black87),
+              ),
+            ],
           ),
         ),
         const SizedBox(width: 4),
-        Text(value, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+        Text(
+          value,
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+        ),
       ],
     );
   }

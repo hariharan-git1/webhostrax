@@ -16,12 +16,15 @@ class VendorStackedBarChart extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-             padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
-             child: Row(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Vendor Device Registration', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                TextButton(onPressed: () {}, child: const Text('View All >')),
+                const Text(
+                  'Vendor Device Registration',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                TextButton(onPressed: () {}, child: const Text('view more >')),
               ],
             ),
           ),
@@ -55,81 +58,152 @@ class VendorStackedBarChart extends StatelessWidget {
                       sideTitles: SideTitles(
                         showTitles: true,
                         getTitlesWidget: (value, meta) {
-                          const style = TextStyle(color: Color(0xff7589a2), fontWeight: FontWeight.bold, fontSize: 12);
-                           String text;
+                          const style = TextStyle(
+                            color: Color(0xff7589a2),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          );
+                          String text;
                           switch (value.toInt()) {
-                            case 0: text = 'Jan'; break;
-                            case 1: text = 'Feb'; break;
-                            case 2: text = 'Mar'; break;
-                            case 3: text = 'Apr'; break;
-                            case 4: text = 'May'; break;
-                            case 5: text = 'Jun'; break;
-                            case 6: text = 'Jul'; break;
-                            case 7: text = 'Aug'; break;
-                            case 8: text = 'Sep'; break;
-                            case 9: text = 'Oct'; break;
-                            case 10: text = 'Nov'; break;
-                            case 11: text = 'Dec'; break;
-                            default: text = '';
+                            case 0:
+                              text = 'Jan';
+                              break;
+                            case 1:
+                              text = 'Feb';
+                              break;
+                            case 2:
+                              text = 'Mar';
+                              break;
+                            case 3:
+                              text = 'Apr';
+                              break;
+                            case 4:
+                              text = 'May';
+                              break;
+                            case 5:
+                              text = 'Jun';
+                              break;
+                            case 6:
+                              text = 'Jul';
+                              break;
+                            case 7:
+                              text = 'Aug';
+                              break;
+                            case 8:
+                              text = 'Sep';
+                              break;
+                            case 9:
+                              text = 'Oct';
+                              break;
+                            case 10:
+                              text = 'Nov';
+                              break;
+                            case 11:
+                              text = 'Dec';
+                              break;
+                            default:
+                              text = '';
                           }
-                          return Text(text, style: style, textAlign: TextAlign.center);
+                          return Text(
+                            text,
+                            style: style,
+                            textAlign: TextAlign.center,
+                          );
                         },
                       ),
                     ),
                     leftTitles: AxisTitles(
-                      sideTitles: SideTitles(showTitles: true, interval: 15, reservedSize: 28),
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 15,
+                        reservedSize: 28,
+                      ),
                     ),
-                    topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    rightTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
                   ),
-                  gridData: FlGridData(show: true, drawVerticalLine: false, horizontalInterval: 15, getDrawingHorizontalLine: (value) => FlLine(color: Colors.grey.shade300, strokeWidth: 1, dashArray: [5, 5])),
+                  gridData: FlGridData(
+                    show: true,
+                    drawVerticalLine: false,
+                    horizontalInterval: 15,
+                    getDrawingHorizontalLine: (value) => FlLine(
+                      color: Colors.grey.shade300,
+                      strokeWidth: 1,
+                      dashArray: [5, 5],
+                    ),
+                  ),
                   borderData: FlBorderData(
                     show: true,
                     border: const Border(
-                      bottom: BorderSide(color: Colors.black, width: 1), // Black axis line
-                      left: BorderSide(color: Colors.black, width: 1),  // Black axis line
+                      bottom: BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ), // Black axis line
+                      left: BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ), // Black axis line
                     ),
                   ),
                   barGroups: [
-                     _makeGroupData(0, [10.0, 5.0, 2.0]), 
-                     _makeGroupData(1, [12.0, 6.0, 3.0]),
-                     _makeGroupData(2, [15.0, 8.0, 4.0]),
-                     _makeGroupData(3, [18.0, 10.0, 5.0]),
-                     _makeGroupData(4, [20.0, 12.0, 6.0]),
-                     _makeGroupData(5, [16.0, 9.0, 4.0]),
-                     _makeGroupData(6, [14.0, 8.0, 3.0]),
-                     _makeGroupData(7, [10.0, 5.0, 2.0]),
-                     _makeGroupData(8, [12.0, 7.0, 4.0]),
-                     _makeGroupData(9, [18.0, 10.0, 6.0]),
-                     _makeGroupData(10, [14.0, 6.0, 3.0]),
-                     _makeGroupData(11, [16.0, 9.0, 5.0]),
+                    _makeGroupData(0, [10.0, 5.0, 2.0]),
+                    _makeGroupData(1, [12.0, 6.0, 3.0]),
+                    _makeGroupData(2, [15.0, 8.0, 4.0]),
+                    _makeGroupData(3, [18.0, 10.0, 5.0]),
+                    _makeGroupData(4, [20.0, 12.0, 6.0]),
+                    _makeGroupData(5, [16.0, 9.0, 4.0]),
+                    _makeGroupData(6, [14.0, 8.0, 3.0]),
+                    _makeGroupData(7, [10.0, 5.0, 2.0]),
+                    _makeGroupData(8, [12.0, 7.0, 4.0]),
+                    _makeGroupData(9, [18.0, 10.0, 6.0]),
+                    _makeGroupData(10, [14.0, 6.0, 3.0]),
+                    _makeGroupData(11, [16.0, 9.0, 5.0]),
                   ],
                 ),
               ),
             ),
           ),
-           const SizedBox(height: 16),
-           // Footer Refinement
-           Container(
+          const SizedBox(height: 16),
+          // Footer Refinement
+          Container(
             padding: const EdgeInsets.all(16),
-             decoration: BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.grey.shade50,
-              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
             ),
-             child: Column(
-               children: [
-                 Row(
+            child: Column(
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildIconStat(const Color(0xFF64B5F6), Icons.hourglass_top, '10 Pending'),
-                    _buildIconStat(const Color(0xFFFFD54F), Icons.verified_user, '20 Verified'),
-                    _buildIconStat(const Color(0xFF4DB6AC), Icons.check_circle, '2 Approved'),
+                    _buildIconStat(
+                      const Color(0xFF64B5F6),
+                      Icons.hourglass_top,
+                      '10 Pending',
+                    ),
+                    _buildIconStat(
+                      const Color(0xFFFFD54F),
+                      Icons.verified_user,
+                      '20 Verified',
+                    ),
+                    _buildIconStat(
+                      const Color(0xFF4DB6AC),
+                      Icons.check_circle,
+                      '2 Approved',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
               ],
             ),
-           ),
+          ),
         ],
       ),
     );
@@ -143,8 +217,16 @@ class VendorStackedBarChart extends StatelessWidget {
           toY: values.reduce((a, b) => a + b),
           rodStackItems: [
             BarChartRodStackItem(0, values[0], const Color(0xFF64B5F6)), // Blue
-            BarChartRodStackItem(values[0], values[0] + values[1], const Color(0xFF4DB6AC)), // Teal
-            BarChartRodStackItem(values[0] + values[1], values.reduce((a, b) => a + b), const Color(0xFFFFD54F)), // Yellow
+            BarChartRodStackItem(
+              values[0],
+              values[0] + values[1],
+              const Color(0xFF4DB6AC),
+            ), // Teal
+            BarChartRodStackItem(
+              values[0] + values[1],
+              values.reduce((a, b) => a + b),
+              const Color(0xFFFFD54F),
+            ), // Yellow
           ],
           width: 20,
           borderRadius: BorderRadius.zero,

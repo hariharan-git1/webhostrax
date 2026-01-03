@@ -6,7 +6,7 @@ class SimpleLineChart extends StatelessWidget {
   final String title;
   final List<LineChartBarData> lineBarsData;
   final double maxY;
-  
+
   const SimpleLineChart({
     super.key,
     required this.title,
@@ -28,8 +28,14 @@ class SimpleLineChart extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              TextButton(onPressed: () {}, child: const Text('View All >')),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              TextButton(onPressed: () {}, child: const Text('view more >')),
             ],
           ),
           const SizedBox(height: 24),
@@ -44,18 +50,49 @@ class SimpleLineChart extends StatelessWidget {
                       showTitles: true,
                       interval: 1,
                       getTitlesWidget: (value, meta) {
-                         switch(value.toInt()) {
-                           case 0: return const Text('Jan', style: TextStyle(fontSize: 10, color: Colors.grey));
-                           case 1: return const Text('Feb', style: TextStyle(fontSize: 10, color: Colors.grey));
-                           case 2: return const Text('Mar', style: TextStyle(fontSize: 10, color: Colors.grey));
-                         }
-                         return const Text('');
+                        switch (value.toInt()) {
+                          case 0:
+                            return const Text(
+                              'Jan',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.grey,
+                              ),
+                            );
+                          case 1:
+                            return const Text(
+                              'Feb',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.grey,
+                              ),
+                            );
+                          case 2:
+                            return const Text(
+                              'Mar',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.grey,
+                              ),
+                            );
+                        }
+                        return const Text('');
                       },
                     ),
                   ),
-                  leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: true, interval: 10, reservedSize: 28)),
-                  topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  leftTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      interval: 10,
+                      reservedSize: 28,
+                    ),
+                  ),
+                  topTitles: AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  rightTitles: AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
                 ),
                 borderData: FlBorderData(show: false),
                 minX: 0,
