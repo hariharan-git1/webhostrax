@@ -250,12 +250,12 @@ class VendorStackedBarChart extends StatelessWidget {
                       const Color(0xFF64B5F6),
                       Icons.hourglass_top,
                       '10 Pending',
-                    ),
+                    ),Container(height: 24, width: 1, color: Colors.grey.shade300),
                     _buildIconStat(
                       const Color(0xFFFFD54F),
                       Icons.verified_user,
                       '20 Verified',
-                    ),
+                    ),Container(height: 24, width: 1, color: Colors.grey.shade300),
                     _buildIconStat(
                       const Color(0xFF4DB6AC),
                       Icons.check_circle,

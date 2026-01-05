@@ -41,7 +41,7 @@ class DashboardScreen extends StatelessWidget {
                             int crossAxisCount = width > 1200
                                 ? 4
                                 : (width > 800 ? 2 : 1);
-                            double aspectRatio = width > 1200 ? 1.7 : 1.5;
+                            double aspectRatio = width > 1200 ? 2.0 : 1.5;
 
                             return GridView.count(
                               crossAxisCount: crossAxisCount,

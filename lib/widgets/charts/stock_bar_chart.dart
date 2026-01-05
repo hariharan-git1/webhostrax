@@ -218,12 +218,12 @@ class StockBarChart extends StatelessWidget {
                       Colors.green,
                       Icons.check_circle,
                       '20 Available',
-                    ),
+                    ),Container(height: 24, width: 1, color: Colors.grey.shade300),
                     _buildIconStat(
                       Colors.orange,
                       Icons.warning,
                       '10 Low Stock',
-                    ),
+                    ),Container(height: 24, width: 1, color: Colors.grey.shade300),
                     _buildIconStat(
                       const Color(0xFFEF5350),
                       Icons.error,
